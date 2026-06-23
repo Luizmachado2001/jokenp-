@@ -1,4 +1,3 @@
-from rich import print, inspect
 from jogo import Jogo
 from jogadores.jogadorhumano import JogadorHumano
 from jogadores.jogadorbot import JogadorBot
@@ -7,7 +6,7 @@ def main():
 
     nome = input("Digite seu nome: ")
 
-    # criando os primeiros jogadores
+    # criando o primeiro jogador
     j1 = JogadorHumano(nome, 0)
 
     # criando o segundo jogador.
