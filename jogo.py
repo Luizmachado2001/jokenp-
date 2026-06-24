@@ -11,8 +11,8 @@ class Jogo:
     """
 
     def __init__(self, jogador_humano, jogador_bot):
-        self.jogador_humano = ...
-        self.jogador_bot = ...
+        self.jogador_humano = jogador_humano
+        self.jogador_bot = jogador_bot
         self.console = Console()
 
 
