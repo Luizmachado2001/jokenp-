@@ -29,32 +29,37 @@ class Jogada:
 
 
     def contra(self, jogada_adversario) -> str:
+
         """Realiza o confronto desta jogada contra a jogada de um adversário.
 
-        Compara as escolhas ignorando letras maiúsculas ou minúsculas, 
-        imprime o resultado do duelo no terminal e futuramente retornará 
-        o status do resultado.
+        Compara as escolhas das jogadas (ignorando maiúsculas/minúsculas) e 
+        verifica quem venceu com base nas regras do Jokenpô.
 
         Args:
             jogada_adversario (Jogada): O objeto da jogada realizada pelo oponente.
 
         Returns:
-            str: Uma string indicando o resultado para o dono desta jogada.
-                 Nota: O método atualmente realiza apenas prints e precisa 
-                 de ajustes futuros para retornar explicitamente os valores.
-        """
+            str: O resultado do confronto sob a perspectiva do jogador atual.
+                 Pode retornar:
+                 - "vitoria": Se o jogador atual vencer o adversário.
+                 - "empate": Se ambos escolherem a mesma opção.
+                 - "derrota": Se o adversário"""
+
+        opcoes = ["vitoria", "derrota", "empate"]
+
+
         escolha_alterado = self.escolha.lower()
         adversario_escolha = jogada_adversario.escolha.lower()
 
         print(f"{escolha_alterado} vs {jogada_adversario.escolha}")
 
         if escolha_alterado == "tesoura" and adversario_escolha == "papel":
-            print(f"{self.nome} você ganhou")
+            return opcoes[0]
         elif escolha_alterado == "papel" and adversario_escolha == "pedra":
-            print(f"{self.nome} voce ganhou")
+            return opcoes[0]
         elif escolha_alterado == "pedra" and adversario_escolha == "tesoura":
-            print(f"{self.nome} voce ganhou")
+            return opcoes[0]
         elif escolha_alterado == adversario_escolha:
-            print("empate")
+            return opcoes[2]
         else:
-            print(f"{jogada_adversario.nome} ganhou")
+            return opcoes[1]

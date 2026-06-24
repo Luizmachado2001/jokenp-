@@ -16,7 +16,19 @@ class Jogo:
         iniciando_bot = self.jogador_bot.escolher_jogada()
 
         # iniciando a luta e vendo que venceu.
-        iniciando_humano.contra(iniciando_bot)
+        resultado = iniciando_humano.contra(iniciando_bot)
+
+        if resultado == "vitoria":
+            self.jogador_humano.pontuacao += 10
+            print("você ganhou 10 pontos")
+        elif resultado == "derrota":
+            self.jogador_bot.pontuacao += 10
+            print("você perdeu e adversario ganhou 10 pontos")
+        else:
+            print("foi empate")
+        
+        self.exibir_placar(self.jogador_bot)
+
 
 
     def exibir_placar(self, adversario) -> str:
