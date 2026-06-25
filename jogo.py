@@ -45,6 +45,7 @@ class Jogo:
             else:
                 self.exibir_placar(self.jogador_bot)
 
+        self.fim_de_jogo() # finalizando jogo!
 
     def exibir_placar(self, adversario) -> None:
         """Gera e exibe uma tabela estilizada contendo as pontuações atuais."""
@@ -62,3 +63,13 @@ class Jogo:
         # Linha em branco para separar visualmente no terminal
         self.console.print("\n")
         self.console.print(tabela)
+
+    def fim_de_jogo(self):
+        """Exibe o resultado final da partida de forma estilizada."""
+        self.console.print("\n[bold purple]---------------- FIM DE JOGO ----------------[/bold purple]")
+        self.exibir_placar(self.jogador_bot)
+        
+        if self.jogador_humano.pontuacao > self.jogador_bot.pontuacao:
+            self.console.print(f"\n🥇 [bold green]{self.jogador_humano.nome} VENCEU A PARTIDA![/bold green] 🎉\n")
+        else:
+            self.console.print(f"\n🤖 [bold red]{self.jogador_bot.nome} VENCEU A PARTIDA![/bold red] Mais sorte na próxima!\n")
