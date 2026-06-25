@@ -4,10 +4,10 @@ from jogadores.jogadorbot import JogadorBot
 
 def main():
 
-    nome = input("Digite seu nome: ").capitalize()
+    player_nome = input("Digite seu nome: ").capitalize() #nome do jogador!
 
     # criando o primeiro jogador
-    j1 = JogadorHumano(nome, 0)
+    j1 = JogadorHumano(player_nome, 0)
 
     # criando o segundo jogador.
     bot = JogadorBot("Bot", 0)
